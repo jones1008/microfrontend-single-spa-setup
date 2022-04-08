@@ -3,6 +3,8 @@ import { fileURLToPath, URL } from "url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+const BASE_URL = "http://localhost:8002";
+
 // https://vitejs.dev/config/
 export default defineConfig({
   rollupOptions: {
@@ -10,12 +12,14 @@ export default defineConfig({
     format: "system",
     preserveEntrySignatures: true,
   },
-  base: "http://localhost:8002/",
+  server: {
+    origin: BASE_URL,
+  },
   plugins: [
     vue({
       template: {
         transformAssetUrls: {
-          base: "/src",
+          base: BASE_URL + "/src",
         },
       },
     }),
