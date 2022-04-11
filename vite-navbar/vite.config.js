@@ -31,4 +31,13 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  css: {
+    postcss: {
+      plugins: [
+        prefixer({
+          prefix: "#single-spa-application\\:\\@novatec\\/vite-navbar",
+        }),
+      ],
+    },
+  },
 });

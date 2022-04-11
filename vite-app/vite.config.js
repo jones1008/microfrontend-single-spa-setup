@@ -5,6 +5,8 @@ import vue from "@vitejs/plugin-vue";
 
 const BASE_URL = "http://localhost:8002";
 
+const prefixer = require("postcss-prefix-selector");
+
 // https://vitejs.dev/config/
 export default defineConfig({
   rollupOptions: {
@@ -27,6 +29,15 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [
+        prefixer({
+          prefix: "#single-spa-application\\:\\@novatec\\/vite-app",
+        }),
+      ],
     },
   },
 });
