@@ -1,6 +1,16 @@
 import { registerApplication, start } from "single-spa";
 
 registerApplication({
+  name: "@novatec/vite-navbar",
+  app: () =>
+    import(
+      /* webpackIgnore: true */
+      "http://localhost:8001/src/main.js"
+    ),
+  activeWhen: ["/"],
+});
+
+registerApplication({
   name: "@novatec/vite-app",
   app: () =>
     import(

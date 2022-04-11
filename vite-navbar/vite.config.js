@@ -1,14 +1,34 @@
-import { fileURLToPath, URL } from 'url'
+import { fileURLToPath, URL } from "url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+
+const BASE_URL = "http://localhost:8001";
+
+const prefixer = require("postcss-prefix-selector");
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  rollupOptions: {
+    input: "src/main.js",
+    format: "system",
+    preserveEntrySignatures: true,
+  },
+  server: {
+    origin: BASE_URL,
+  },
+  plugins: [
+    vue({
+      template: {
+        transformAssetUrls: {
+          base: BASE_URL + "/src",
+        },
+      },
+    }),
+  ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+});
