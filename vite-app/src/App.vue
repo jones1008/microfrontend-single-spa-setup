@@ -4,32 +4,36 @@ import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
+  <div id="vue3-app-body">
+    <div id="vue3-app">
+      <header>
+        <img
+            alt="Vue logo"
+            class="logo"
+            src="@/assets/logo.svg"
+            width="125"
+            height="125"
+        />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+        <div class="wrapper">
+          <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+          <nav>
+            <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/about">About</RouterLink>
+          </nav>
+        </div>
+      </header>
+
+      <RouterView />
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
 <style>
 @import "@/assets/base.css";
 
-#app {
+#vue3-app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -86,12 +90,12 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  body {
+  #vue3-app-body {
     display: flex;
     place-items: center;
   }
 
-  #app {
+  #vue3-app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
