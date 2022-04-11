@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --port 8002",
+    "dev:standalone": "vite --port 8002 --mode standalone",
     "build": "vite build",
     "preview": "vite preview --port 5050"
   },
