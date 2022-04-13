@@ -1,25 +1,22 @@
 import { registerApplication, start } from "single-spa";
+import {
+  constructApplications,
+  constructRoutes,
+  constructLayoutEngine,
+} from "single-spa-layout";
+import microFrontendLayout from "./microfrontend-layout.html";
+import loadFns from "./microfrontend-map";
 
-registerApplication({
-  name: "@novatec/vite-navbar",
-  app: () =>
-    import(
-      /* webpackIgnore: true */
-      "http://localhost:8001/src/main.js"
-    ),
-  activeWhen: ["/"],
+const routes = constructRoutes(microFrontendLayout);
+const applications = constructApplications({
+  routes,
+  loadApp({ name }) {
+    const loadFn = loadFns[name];
+    return loadFn ? loadFn() : System.import(name);
+  },
 });
+const layoutEngine = constructLayoutEngine({ routes, applications });
 
-registerApplication({
-  name: "@novatec/vite-app",
-  app: () =>
-    import(
-      /* webpackIgnore: true */
-      "http://localhost:8002/src/main.js"
-    ),
-  activeWhen: ["/"],
-});
-
-start({
-  urlRerouteOnly: true, // needed for vue router to work (see https://single-spa.js.org/docs/ecosystem-vue#vue-3)
-});
+applications.forEach(registerApplication);
+layoutEngine.activate();
+start({ urlRerouteOnly: true });
