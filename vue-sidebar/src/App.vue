@@ -7,7 +7,7 @@
           <a href="/">home</a>
         </li>
         <li>
-          <a href="app">app</a>
+          <a href="/app">app</a>
         </li>
       </ul>
     </nav>
@@ -19,3 +19,9 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+  a {
+    color: red !important;
+  }
+</style>
