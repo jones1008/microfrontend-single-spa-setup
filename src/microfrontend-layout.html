@@ -21,8 +21,13 @@
 <!--    <application name="@novatec/vite-navbar"></application>-->
 <!--    <a href="/app">open App</a>-->
     <application name="@novatec/vite-navbar"></application>
-    <route default>
-      <application name="@novatec/vite-app"></application>
-    </route>
+    <div style="display: flex">
+      <aside>
+        <application name="@novatec/vue-sidebar"></application>
+      </aside>
+      <route path="app">
+        <application name="@novatec/vite-app"></application>
+      </route>
+    </div>
   </main>
 </single-spa-router>

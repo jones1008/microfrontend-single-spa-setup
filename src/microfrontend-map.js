@@ -1,7 +1,8 @@
-// for ES Modules:
+// only add ES Modules here:
 // "@org/app-name": () => import(/* webpackIgnore: true */ "http://localhost:PORT/src/main.js"),
-// for bundled stuff
-// "@org/app-name": () => System.import("http://localhost:PORT/bundled.js"),
+
+// don't add bundled stuff here (e.g. by webpack)
+//  they need to go inside the importmap in index.ejs (systemjs-importmap)
 
 export default {
   "@novatec/vite-app": () =>
