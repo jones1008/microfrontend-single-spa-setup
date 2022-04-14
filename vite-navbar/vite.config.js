@@ -9,10 +9,15 @@ const prefixer = require("postcss-prefix-selector");
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  rollupOptions: {
-    input: "src/main.js",
-    format: "system",
-    preserveEntrySignatures: true,
+  build: {
+    rollupOptions: {
+      input: "src/main.js",
+      preserveEntrySignatures: true,
+      output: {
+        format: "system",
+        entryFileNames: "src/[name].js",
+      },
+    },
   },
   server: {
     origin: BASE_URL,
