@@ -7,7 +7,7 @@
           <a href="/">home</a>
         </li>
         <li>
-          <a href="/app">app</a>
+          <a href="/app1">app 1</a>
         </li>
       </ul>
     </nav>
