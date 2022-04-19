@@ -7,7 +7,6 @@
 export default {
   "@novatec/vite-app": () =>
     import(/* webpackIgnore: true */ "http://localhost:8002/src/main.js"),
-  // "@novatec/vite-navbar":
-  // () =>
-  //   import(/* webpackIgnore: true */ "http://localhost:8001/src/main.js"),
+  "@novatec/vite-navbar": () =>
+    import(/* webpackIgnore: true */ "http://localhost:8001/src/main.js"),
 };
