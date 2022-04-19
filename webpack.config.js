@@ -24,5 +24,15 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+    module: {
+      rules: [
+        {
+          test: /\.ejs$/,
+          use: {
+            loader: "ejs-compiled-loader",
+          },
+        },
+      ],
+    },
   });
 };

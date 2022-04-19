@@ -25,14 +25,11 @@
       <aside>
         <application name="@novatec/vue-sidebar"></application>
       </aside>
-
-<!--      TODO: dynamisch austauschbar-->
-<!--      DB Aufruf-->
-<!--      Array speichern-->
-<!--      Loop über Array-->
-      <route path="app1">
-        <application name="@novatec/vite-app"></application>
-      </route>
+      <% routes.forEach(function(route) { %>
+        <route path="<%= route.path %>">
+          <application name="<%= route.name %>"></application>
+        </route>
+      <% }); %>
     </div>
   </main>
 </single-spa-router>

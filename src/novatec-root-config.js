@@ -4,10 +4,13 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-import microFrontendLayout from "./microfrontend-layout.html";
+import microFrontendLayout from "./microfrontend-layout.ejs";
 import loadFns from "./microfrontend-map";
 
-const routes = constructRoutes(microFrontendLayout);
+// This configuration could be loaded from a database
+const microFrontends = [{ path: "app1", name: "@novatec/vite-app" }];
+
+const routes = constructRoutes(microFrontendLayout({ routes: microFrontends }));
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
