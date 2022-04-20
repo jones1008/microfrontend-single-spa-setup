@@ -39,15 +39,25 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
+  <!-- prod environment import maps: -->
+    <script type="systemjs-importmap">
+
+       {
+          "imports": {
+            "@<%= orgName %>/root-config": "//localhost:9001/<%= orgName %>-root-config.js",
+            "@<%= orgName %>/vue-sidebar": "//localhost:8003/js/app.js",
+            "@<%= orgName %>/vite-navbar": "//localhost:8001/src/main.js"
+          }
+        }
+   </script>
 
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@novatec/root-config": "//localhost:9001/novatec-root-config.js",
-        "@novatec/vue-sidebar": "//localhost:8003/js/app.js",
-        "@novatec/vite-navbar": "//localhost:8001/src/main.js"
+        "@<%= orgName %>/root-config": "//localhost:9001/<%= orgName %>-root-config.js",
+        "@<%= orgName %>/vue-sidebar": "//localhost:8003/js/app.js",
+        "@<%= orgName %>/vite-navbar": "//localhost:8001/src/main.js"
       }
     }
   </script>
@@ -80,7 +90,7 @@
   </noscript>
   <main></main>
   <script>
-    System.import('@novatec/root-config');
+    System.import('@<%= orgName %>/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>

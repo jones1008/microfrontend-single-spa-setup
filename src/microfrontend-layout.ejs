@@ -18,13 +18,14 @@
   -->
 
   <main>
-<!--    <application name="@novatec/vite-navbar"></application>-->
-<!--    <a href="/app">open App</a>-->
     <application name="@novatec/vite-navbar"></application>
     <div style="display: flex">
       <aside>
         <application name="@novatec/vue-sidebar"></application>
       </aside>
+      <route default>
+        <h1>route default</h1>
+      </route>
       <% routes.forEach(function(route) { %>
         <route path="<%= route.path %>">
           <application name="<%= route.name %>"></application>

@@ -8,7 +8,8 @@
     "check-format": "prettier --check .",
     "prepare": "husky install",
     "build": "concurrently npm:build:*",
-    "build:webpack": "webpack --mode=production"
+    "build:webpack": "webpack --mode=production",
+    "preview": "serve --listen 9001 --single ./dist"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -29,7 +30,7 @@
     "jest-cli": "^27.0.6",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
-    "serve": "^12.0.0",
+    "serve": "^12.0.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-config-single-spa": "^5.0.0",
