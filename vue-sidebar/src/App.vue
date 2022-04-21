@@ -1,6 +1,7 @@
 <template>
   <div>
     <h4>Sidebar</h4>
+    <img src="@/assets/logo.svg" alt="vue logo">
     <nav>
       <ul>
         <li>
