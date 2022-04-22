@@ -1,6 +1,7 @@
 <template>
   <nav>
-    this is the navbar-app
+    <span>this is the navbar-app</span>
+    <img src="@/assets/logo.svg" alt="vue logo" width="50">
   </nav>
 </template>
 

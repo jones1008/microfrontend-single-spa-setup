@@ -5,7 +5,7 @@
     "dev": "vite --port 8002",
     "dev:standalone": "vite --port 8002 --mode standalone",
     "build": "vite build",
-    "preview": "vite preview --port 5050"
+    "preview": "vite preview --port 8002"
   },
   "dependencies": {
     "single-spa-vue": "^2.5.1",
