@@ -13,7 +13,14 @@ cd vite-app
 npm run dev
 ```
 
-Start the vue 2 application (webpack) in `vue-app`:
+Start the second vue 3 application (vite) in `vite-navbar`:
 ```
+cd vite-navbar
+npm run dev
+```
+
+Start the vue 2 application (webpack) in `vue-sidebar`:
+```
+cd vue-sidebar
 npm run serve
 ```
